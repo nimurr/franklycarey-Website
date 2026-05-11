@@ -24,7 +24,9 @@ const ExplorebyCategory = () => {
                             alt=""
                         />
                         <div className="absolute bottom-0 group-hover:bottom-20 transition-all duration-300 w-48 h-32 left-0">
-                            <div className="h-full w-full bg-white mx-auto rounded-xl ml-4"></div>
+                            <div className="h-full w-full bg-white mx-auto rounded-xl ml-4 p-2 text-center">
+                                sadfkasjdhf
+                            </div>
                         </div>
                         <img
                             className="absolute bottom-0 w-60 left-0 rotate-180"
