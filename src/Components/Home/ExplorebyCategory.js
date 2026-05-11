@@ -23,9 +23,18 @@ const ExplorebyCategory = () => {
                             src="/Images/Home/folder_image_down.png"
                             alt=""
                         />
-                        <div className="absolute bottom-0 group-hover:bottom-20 transition-all duration-300 w-48 h-32 left-0">
-                            <div className="h-full w-full bg-white mx-auto rounded-xl ml-4 p-2 text-center">
-                                sadfkasjdhf
+                        <div className="absolute bottom-0  transition-all duration-300 w-48 h-32 left-0">
+                            <div className="h-full absolute group-hover:bottom-40 group-hover:left-0  w-full bg-white mx-auto rounded-xl ml-4 p-2 text-center">
+                                1
+                            </div>
+                            <div className="h-full absolute w-full bg-white mx-auto rounded-xl ml-4 p-2 text-center">
+                                2
+                            </div>
+                            <div className="h-full absolute w-full bg-white mx-auto rounded-xl ml-4 p-2 text-center">
+                                3
+                            </div>
+                            <div className="h-full absolute w-full bg-white mx-auto rounded-xl ml-4 p-2 text-center">
+                                4
                             </div>
                         </div>
                         <img
