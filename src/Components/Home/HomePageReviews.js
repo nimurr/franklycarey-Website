@@ -255,9 +255,9 @@ const StarRating = ({ rating }) => (
     <div className="flex items-center gap-1">
         <span className="text-orange-500 font-bold text-base mr-1">{rating}</span>
         {[1, 2, 3, 4, 5].map((i) => {
-            if (rating >= i)       return <FaStar key={i}         className="text-orange-500 w-4 h-4" />;
+            if (rating >= i) return <FaStar key={i} className="text-orange-500 w-4 h-4" />;
             if (rating >= i - 0.5) return <FaStarHalfAlt key={i} className="text-orange-500 w-4 h-4" />;
-            return                        <FaRegStar key={i}      className="text-orange-500 w-4 h-4" />;
+            return <FaRegStar key={i} className="text-orange-500 w-4 h-4" />;
         })}
     </div>
 );
@@ -313,7 +313,7 @@ const HomePageReviews = () => {
                         {/* Left arrow */}
                         <button
                             onClick={() => go(-1)}
-                            className="absolute left-0 z-40 w-10 h-10 flex items-center justify-center border border-gray-300 bg-white rounded hover:bg-gray-50 active:scale-95 transition-all shadow-sm text-gray-600 font-bold text-lg select-none"
+                            className="absolute left-0 z-30 w-16 h-16 flex items-center justify-center border border-gray-300  rounded hover:bg-gray-50 active:scale-95 transition-all shadow-sm text-gray-600 font-bold text-2xl"
                         >
                             ←
                         </button>
@@ -323,7 +323,7 @@ const HomePageReviews = () => {
                             {reviews.map((review, i) => {
                                 // compute offset, normalised to -floor(total/2)..+floor(total/2)
                                 let offset = i - current;
-                                if (offset > Math.floor(total / 2))  offset -= total;
+                                if (offset > Math.floor(total / 2)) offset -= total;
                                 if (offset < -Math.floor(total / 2)) offset += total;
 
                                 const style = slotStyle(offset);
@@ -348,7 +348,7 @@ const HomePageReviews = () => {
                         {/* Right arrow */}
                         <button
                             onClick={() => go(1)}
-                            className="absolute right-0 z-40 w-10 h-10 flex items-center justify-center border border-gray-300 bg-white rounded hover:bg-gray-50 active:scale-95 transition-all shadow-sm text-gray-600 font-bold text-lg select-none"
+                            className="absolute right-0 z-30 w-16 h-16 flex items-center justify-center border border-gray-300  rounded hover:bg-gray-50 active:scale-95 transition-all shadow-sm text-gray-600 font-bold text-2xl"
                         >
                             →
                         </button>
