@@ -10,6 +10,7 @@ import ForEventCreators from '@/Components/Home/ForEventCreators';
 import ForDrivers from '@/Components/Home/ForDrivers';
 import ShowMobileApp from '@/Components/Home/ShowMobileApp';
 import ReadytoExperience from '@/Components/Home/ReadytoExperience';
+import HomePageReviews from '@/Components/Home/HomePageReviews';
 
 const Page = () => {
  
@@ -22,6 +23,7 @@ const Page = () => {
             <EventsNearYou />
             <TrendingNow />
             <Subscribtion />
+            <HomePageReviews />
             <ForEventCreators />
             <ForDrivers />
             <ShowMobileApp />
