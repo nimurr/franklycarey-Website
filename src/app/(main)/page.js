@@ -9,6 +9,7 @@ import React from 'react';
 import ForEventCreators from '@/Components/Home/ForEventCreators';
 import ForDrivers from '@/Components/Home/ForDrivers';
 import ShowMobileApp from '@/Components/Home/ShowMobileApp';
+import ReadytoExperience from '@/Components/Home/ReadytoExperience';
 
 const Page = () => {
  
@@ -24,6 +25,7 @@ const Page = () => {
             <ForEventCreators />
             <ForDrivers />
             <ShowMobileApp />
+            <ReadytoExperience />
         </div>
     );
 }

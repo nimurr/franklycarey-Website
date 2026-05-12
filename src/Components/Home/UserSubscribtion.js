@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Subscribtion = () => {
+    const [email, setEmail] = useState('');
+
     return (
-        <div className=" min-h-screen flex items-center justify-center ">
-            <div className=" border-y border-gray-300 md:py-20 py-10 w-full">
-                <div className="relative border-y border-gray-300 w-full overflow-hidden min-h-[500px] flex items-center justify-center"  >
+        <div className="min-h-screen flex items-center justify-center">
+            <div className="border-y border-gray-300 md:py-20 py-10 w-full">
+                <div className="relative border-y border-gray-300 w-full overflow-hidden min-h-[400px] flex items-center justify-center">
 
                     {/* Video Background */}
                     <video
@@ -17,49 +19,40 @@ const Subscribtion = () => {
                     />
 
                     {/* Dark Overlay */}
-                    <div className="absolute inset-0 bg-black/35" />
+                    <div className="absolute inset-0 bg-black/40" />
 
                     {/* Content */}
-                    <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-                        <h1
-                            className="text-white font-semibold leading-tight mb-4"
-                            style={{
-                                fontSize: 'clamp(3rem, 6vw, 4rem)',
-                                fontFamily: "'Barlow Condensed', 'Arial Black', sans-serif",
-                                textShadow: '0 2px 12px rgba(0,0,0,0.4)',
-                                letterSpacing: '-0.5px',
-                            }}
-                        >
-                            Ready to Experience<br />the Bahamas?
+                    <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 py-16 w-full max-w-2xl mx-auto gap-3">
+
+                        {/* Heading */}
+                        <h1 className="text-white font-bold text-4xl md:text-5xl tracking-tight">
+                            Trending Now
                         </h1>
 
-                        <p
-                            className="text-white/90 mb-8"
-                            style={{
-                                fontSize: 'clamp(0.9rem, 2vw, 1.05rem)',
-                                fontFamily: "'Barlow', 'Helvetica Neue', sans-serif",
-                                fontWeight: 400,
-                                textShadow: '0 1px 6px rgba(0,0,0,0.35)',
-                                // maxWidth: '480px',
-                            }}
-                        >
-                            Book your next unforgettable event today — thousands of memories waiting.
+                        {/* Subtitle */}
+                        <p className="text-white/90 text-base md:text-lg font-normal">
+                            Everyone's talking about these events. Don't miss out.
                         </p>
 
-                        <button
-                            className="flex items-center gap-2 font-semibold text-white px-7 py-3 rounded transition-all duration-200 hover:brightness-110 active:scale-95 border border-white"
-                            style={{
-                                backgroundColor: '#F26522',
-                                fontFamily: "'Barlow', 'Helvetica Neue', sans-serif",
-                                fontSize: '0.92rem',
-                                letterSpacing: '0.3px',
-                                boxShadow: '0 4px 16px rgba(242,101,34,0.4)',
-                            }}
-                        >
-                            {/* <span style={{ fontSize: '1rem' }}>›</span> */}
-                            🎉
-                            Explore All Events
-                        </button>
+                        {/* Email + Subscribe row */}
+                        <div className="flex items-stretch w-full max-w-xl mt-3 rounded overflow-hidden">
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Enter your e-mail address"
+                                className="flex-1 bg-transparent border border-white/60 text-white placeholder-white/50 px-5 py-3 text-sm outline-none focus:border-white transition-colors duration-200"
+                            />
+                            <button className="bg-orange-500 hover:brightness-110 active:scale-95 transition-all text-white font-semibold px-7 py-3 text-sm whitespace-nowrap">
+                                Subscribe →
+                            </button>
+                        </div>
+
+                        {/* Disclaimer */}
+                        <p className="text-white/70 text-sm mt-1">
+                            No spam, ever. Unsubscribe anytime.
+                        </p>
+
                     </div>
 
                 </div>
