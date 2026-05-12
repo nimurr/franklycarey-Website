@@ -14,7 +14,7 @@ const barData = [
 const ForEventCreators = () => {
     return (
         <div className=" min-h-screen flex items-center justify-center py-12">
-            <div className=" border-y border-gray-300 md:py-20 py-10 w-full flex items-center  justify-between">
+            <div className=" border-y border-gray-300 md:py-20 py-10 w-full flex md:flex-row flex-col items-center justify-between">
 
                 {/* Left Column */}
                 <div className="flex-1 flex flex-col items-start gap-5">

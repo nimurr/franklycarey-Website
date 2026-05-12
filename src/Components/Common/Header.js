@@ -39,7 +39,7 @@ const Header = () => {
     return (
         <>
             <header
-                className={`sticky top-0 z-50 w-full transition-all duration-300 pt-10
+                className={`sticky top-0 z-50 w-full transition-all duration-300 md:pt-8 
                     ${scrolled
                         ? ' '
                         : ''
@@ -94,7 +94,7 @@ const Header = () => {
                             onClick={() => setMenuOpen(prev => !prev)}
                             aria-label="Toggle menu"
                             className="xl:hidden w-10 h-10 flex items-center justify-center rounded-xl 
-                                border border-gray-200 text-gray-600 hover:text-primary hover:border-primary/30 
+                                border border-gray-200 text-gray-100 hover:text-primary hover:border-primary/30 
                                 hover:bg-primary/5 transition-all duration-200"
                         >
                             {menuOpen ? <HiX size={20} /> : <HiMenu size={20} />}

@@ -32,13 +32,12 @@ const Hero = () => {
             </div>
 
             {/* ── Content ── */}
-            <div className='relative z-10 flex items-center flex-col justify-center min-h-[80vh] py-10'>
-                <h2 className={`text-6xl font-bold my-5 leading-[1.2] text-center ${txt}`}>
+            <div className='relative z-10 flex items-center flex-col justify-center min-h-[80vh] h-full py-10'>
+                <h2 className={`md:text-6xl text-4xl font-bold my-5 leading-[1.2] text-center ${txt}`}>
                     Discover Unforgettable
                     <br />
-                    <div className='flex items-center gap-5'>
+                    <div className='md:flex items-center gap-5'>
                         Moments in
-
                         {/* Inline video — shrinks away after 1s */}
                         <div className={`transition-all duration-1000 ease-in-out overflow-hidden rounded-full
                             ${videoExpanded ? 'w-0 h-0 opacity-0' : 'w-48 h-32 opacity-100'}`}>
@@ -49,20 +48,20 @@ const Hero = () => {
                             />
                         </div>
 
-                        <span className="bg-[url('/Images/Home/heor_text_bd.png')] bg-no-repeat bg-bottom bg-[length:100%_auto] pb-0 ml-2 inline-block">
+                        <span className="bg-[url('/Images/Home/heor_text_bd.png')] bg-no-repeat bg-bottom bg-[length:100%_auto] pb-0 md:ml-2 inline-block">
                             the Bahamas
                         </span>
                     </div>
                 </h2>
 
-                <p className={`mt-10 text-xl ${txt}`}>
+                <p className={`mt-10 text-xl text-center ${txt}`}>
                     Music, art, culture, and beachside experiences—all in one place.
                 </p>
 
                 <div>
                     {/* Search Form */}
-                    <div className="border border-gray-300 mt-10">
-                        <form className="grid grid-cols-[1fr_1px_1fr_1px_1fr_1px_auto]">
+                    <div className="border border-gray-300 mt-10 rounded p-1">
+                        <form className="grid  md:grid-cols-[1fr_1px_1fr_1px_1fr_1px_auto]">
                             {/* Island */}
                             <div className="px-6 py-4">
                                 <label className={`block text-xs font-semibold mb-1 ${txt}`}>Island</label>
@@ -117,14 +116,14 @@ const Hero = () => {
                     </div>
 
                     {/* CTA Buttons */}
-                    <div className="grid grid-cols-2 border-gray-300">
-                        <div className="flex items-center justify-center px-10 py-10">
+                    <div className="grid md:grid-cols-2 gap-2 border-gray-300 mt-3">
+                        <div className="flex items-center justify-center md:px-10 md:py-10">
                             <button className="w-full bg-primary hover:bg-primary/90 active:scale-95 text-white
                                 font-bold text-lg px-10 py-5 rounded-2xl transition-all duration-200 shadow-md shadow-primary/20">
                                 Explore Events
                             </button>
                         </div>
-                        <div className="flex items-center justify-center px-10 py-10">
+                        <div className="flex items-center justify-center md:px-10 md:py-10">
                             <button className="w-full bg-white hover:bg-primary/5 active:scale-95 text-primary
                                 font-bold text-lg px-10 py-5 rounded-2xl border-2 border-primary/40
                                 hover:border-primary transition-all duration-200">
@@ -134,14 +133,14 @@ const Hero = () => {
                     </div>
 
                     {/* Stats */}
-                    <div className="grid grid-cols-4 border-gray-300">
+                    <div className="grid grid-cols-2 md:grid-cols-4 border-gray-300 mt-2 gap-5">
                         {[
                             { value: '500+', label: 'Live Events' },
                             { value: '12K+', label: 'Live Events' },
                             { value: '48', label: 'Live Events' },
                             { value: '4.9', label: 'Live Events', star: true },
                         ].map(({ value, label, star }, i) => (
-                            <div key={i} className="flex flex-col items-center justify-center py-8 gap-1">
+                            <div key={i} className="flex flex-col items-center justify-center md:py-8 gap-1">
                                 <div className="flex items-center gap-2">
                                     <span className={`text-5xl font-bold ${txt}`}>{value}</span>
                                     {star && <span className="text-primary text-3xl">★</span>}
