@@ -8,6 +8,7 @@ import TrendingNow from '@/Components/Home/TrendingNow';
 import Loading from '@/Components/others/Loading';
 import { useGetDemoDataQuery } from '@/redux/fetures/Demo/demoDataGet';
 import React from 'react';
+import ForEventCreators from '@/Components/Home/ForEventCreators';
 
 const Page = () => {
 
@@ -22,6 +23,7 @@ const Page = () => {
             <EventsNearYou />
             <TrendingNow />
             <Subscribtion />
+            <ForEventCreators />
         </div>
     );
 }
