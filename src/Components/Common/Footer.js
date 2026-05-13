@@ -51,8 +51,7 @@ const Footer = () => {
                     <div className="flex flex-col gap-4">
                         {/* Logo */}
                         <div className="flex items-center">
-                            <span className="text-orange-500 font-black text-2xl tracking-tight">X</span>
-                            <span className="text-white font-black text-2xl tracking-tight">plorify</span>
+                           <img className='w-32' src="/Images/Auth/logo.png" alt="" />
                         </div>
 
                         {/* Tagline */}
