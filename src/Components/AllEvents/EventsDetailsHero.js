@@ -23,11 +23,11 @@ const EventsDetailsHero = () => {
     const txt = `transition-colors duration-1000 ${videoExpanded ? 'text-white' : ''}`;
 
     return (
-        <div className=' overflow-hidden md:min-h-[70vh] min-h-[100vh] z-0'>
+        <div className=' overflow-hidden md:min-h-[60vh] min-h-[70vh] z-0'>
             <Header />
 
             {/* ── Background video — absolute stays inside Hero only ── */}
-            <div className={`absolute overflow-hidden md:max-h-[70vh] max-h-[100vh] rounded-b-2xl inset-0 z-0 transition-opacity duration-1000 ease-in-out
+            <div className={`absolute overflow-hidden md:max-h-[60vh] max-h-[70vh] rounded-b-2xl inset-0 z-0 transition-opacity duration-1000 ease-in-out
                 ${videoExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                 <video
                     autoPlay muted loop playsInline

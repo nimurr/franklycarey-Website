@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { FiHeart, FiShare2, FiCalendar, FiClock, FiMapPin, FiUsers, FiCheckCircle, FiStar } from 'react-icons/fi';
 import { MdOutlineFollowTheSigns } from 'react-icons/md';
@@ -90,14 +91,14 @@ const BookingCard = () => {
 // ── Main Component ────────────────────────────────────────────────
 const EventsDetailsContent = () => {
     return (
-        <div className="min-h-screen py-8 !z-[999] -mt-40">
+        <div className="min-h-screen py-8 z-[999] -mt-40">
             <div className=" mx-auto flex flex-col lg:flex-row gap-8 items-start">
 
                 {/* ── Left / Main Content ── */}
                 <div className="flex-1 flex flex-col gap-8 ">
 
                     {/* Header */}
-                    <div className="flex flex-col gap-4 bg-white p-5 rounded-lg">
+                    <div className="flex flex-col justify-center gap-4 bg-white p-5 rounded-lg z-[999] min-h-52">
                         <div className="flex items-start justify-between  gap-4">
                             <h1 className="text-2xl md:text-3xl font-black text-gray-900 leading-tight">
                                 Junkanoo Summer Festival 2026
@@ -182,12 +183,12 @@ const EventsDetailsContent = () => {
                                     src={galleryImages[0].src}
                                     alt="gallery"
                                     className="w-full h-full object-cover"
-                                    style={{ minHeight: '200px' }}
+                                    style={{ minHeight: '300px' }}
                                 />
                             </div>
                             {/* 4 smaller images on the right */}
                             {galleryImages.slice(1).map((img) => (
-                                <div key={img.id} className="rounded-xl overflow-hidden h-28">
+                                <div key={img.id} className="rounded-xl overflow-hidden ">
                                     <img
                                         src={img.src}
                                         alt="gallery"
@@ -219,7 +220,7 @@ const EventsDetailsContent = () => {
                                     <img
                                         src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
                                         alt="organizer"
-                                        className="w-10 h-10 rounded-full object-cover border-2 border-white shadow"
+                                        className="w-16 h-16 -mt-10 z-10 object-cover border-2 border-white shadow"
                                     />
                                     <div>
                                         <p className="font-bold text-gray-900 text-sm">Cay Symphony Studio</p>
@@ -236,9 +237,9 @@ const EventsDetailsContent = () => {
                                         <MdOutlineFollowTheSigns className="w-4 h-4" />
                                         Follow
                                     </button>
-                                    <button className="border border-gray-300 text-gray-700 text-xs font-semibold px-4 py-2 rounded hover:bg-gray-50 active:scale-95 transition-all">
+                                    <Link href={`/events/profile/1520520`} className="border border-gray-300 text-gray-700 text-xs font-semibold px-4 py-2 rounded hover:bg-gray-50 active:scale-95 transition-all">
                                         View Full Profile
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
