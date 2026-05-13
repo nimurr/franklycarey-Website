@@ -48,7 +48,7 @@ const Header = () => {
 
                 <div className={`container  border-y-0 mx-auto px-5 py-5 flex items-center justify-between gap-6
                         transition-colors duration-1000
-                        ${white ? 'border-x border-transparent bg-slate-900/10 rounded-lg  backdrop-blur-md shadow-sm' :
+                        ${white ? 'border-x border-transparent bg-slate-900/10 rounded-lg  backdrop-blur-sm shadow-sm' :
                         'border-y-2 border-gray-300'}`}>
                     {/* Logo */}
                     <Link href="/" className="shrink-0">
