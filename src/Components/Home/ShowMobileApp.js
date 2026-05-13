@@ -46,7 +46,7 @@ const ShowMobileApp = () => {
     }, []);
 
     return (
-        <div className="min-h-screen flex items-center justify-center py-12 mt-10">
+        <div className="flex items-center justify-center py-12">
             <div className="border-y border-gray-300 md:py-20 py-10 w-full">
 
                 <div

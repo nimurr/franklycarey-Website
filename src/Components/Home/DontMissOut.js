@@ -130,7 +130,7 @@ const DontMissOut = () => {
     const [activeSlide, setActiveSlide] = useState(0);
 
     return (
-        <div className=" min-h-screen flex items-center justify-center py-12 mt-10">
+        <div className=" flex items-center justify-center py-12 mt-10">
             <div className=" border-y border-gray-300 md:py-20 py-10 w-full">
                 {/* Header */}
                 <div className="text-center mb-8">

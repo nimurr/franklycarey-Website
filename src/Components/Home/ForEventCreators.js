@@ -13,7 +13,7 @@ const barData = [
 
 const ForEventCreators = () => {
     return (
-        <div className=" min-h-screen flex items-center justify-center py-12">
+        <div className="flex items-center justify-center py-12">
             <div className=" border-y border-gray-300 md:py-20 py-10 w-full flex md:flex-row flex-col items-center justify-between">
 
                 {/* Left Column */}

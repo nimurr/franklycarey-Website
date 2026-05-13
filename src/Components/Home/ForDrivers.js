@@ -28,7 +28,7 @@ const features = [
 
 const ForDrivers = () => {
     return (
-        <div className="min-h-screen flex items-center justify-center py-12 md:mt-20 mt-0">
+        <div className="flex items-center justify-center py-12">
             <div className="border-y border-gray-300 md:py-20 py-10 w-full flex flex-col lg:flex-row items-center justify-between gap-10">
 
                 {/* Left Column */}

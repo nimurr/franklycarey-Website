@@ -4,7 +4,7 @@ import React from 'react';
 
 const ReadytoExperience = () => {
     return (
-        <div className=" min-h-screen flex items-center justify-center ">
+        <div className="flex items-center justify-center py-12">
             <div className=" border-y border-gray-300 md:py-20 py-10 w-full">
                 <div className="relative border-y border-gray-300 w-full overflow-hidden min-h-[500px] flex items-center justify-center"  >
 
