@@ -5,8 +5,12 @@ import React from 'react';
 const Page = () => {
     return (
         <div>
-            <EventsDetailsHero />
-            <EventsDetailsContent />
+            <div className=''>
+                <EventsDetailsHero />
+            </div>
+            <div className=''>
+                <EventsDetailsContent />
+            </div>
         </div>
     );
 }

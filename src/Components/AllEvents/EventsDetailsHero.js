@@ -23,7 +23,7 @@ const EventsDetailsHero = () => {
     const txt = `transition-colors duration-1000 ${videoExpanded ? 'text-white' : ''}`;
 
     return (
-        <div className=' overflow-hidden md:min-h-[70vh] min-h-[100vh]'>
+        <div className=' overflow-hidden md:min-h-[70vh] min-h-[100vh] z-0'>
             <Header />
 
             {/* ── Background video — absolute stays inside Hero only ── */}

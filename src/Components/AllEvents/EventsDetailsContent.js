@@ -90,15 +90,15 @@ const BookingCard = () => {
 // ── Main Component ────────────────────────────────────────────────
 const EventsDetailsContent = () => {
     return (
-        <div className="min-h-screen bg-gray-100 py-8 px-4 md:px-10">
-            <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 items-start">
+        <div className="min-h-screen py-8 !z-[999] -mt-40">
+            <div className=" mx-auto flex flex-col lg:flex-row gap-8 items-start">
 
                 {/* ── Left / Main Content ── */}
-                <div className="flex-1 flex flex-col gap-8">
+                <div className="flex-1 flex flex-col gap-8 ">
 
                     {/* Header */}
-                    <div className="flex flex-col gap-4">
-                        <div className="flex items-start justify-between gap-4">
+                    <div className="flex flex-col gap-4 bg-white p-5 rounded-lg">
+                        <div className="flex items-start justify-between  gap-4">
                             <h1 className="text-2xl md:text-3xl font-black text-gray-900 leading-tight">
                                 Junkanoo Summer Festival 2026
                             </h1>
