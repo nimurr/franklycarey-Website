@@ -1,4 +1,4 @@
- 
+
 
 
 
@@ -31,11 +31,12 @@ const EverntProfileHero = () => {
             {/* ── Background video — absolute stays inside Hero only ── */}
             <div className={`absolute overflow-hidden md:max-h-[60vh] max-h-[70vh] rounded-b-2xl inset-0 z-0 transition-opacity duration-1000 ease-in-out
                 ${videoExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <video
+                {/* <video
                     autoPlay muted loop playsInline
                     src="/Images/Events/event_detials_hero.mp4"
                     className="w-full h-full object-cover "
-                />
+                /> */}
+                <img className="w-full h-full object-cover " src="/Images/Events/Profile_Cover.jpg" alt="" />
                 <div className="absolute inset-0 bg-black/50" />
             </div>
 
