@@ -31,6 +31,12 @@ const BookingCard = () => {
     const serviceFee = 5;
     const subtotal = pricePerTicket * qty;
     const total = subtotal + serviceFee;
+    // const []
+
+    const handleShowModalForConfirmation =()=>{
+
+    }
+
 
     return (
         <div className="bg-white rounded-xl shadow-md border border-gray-100 p-5 flex flex-col gap-4 sticky top-6">
@@ -77,7 +83,9 @@ const BookingCard = () => {
             </div>
 
             {/* CTA */}
-            <button className="w-full bg-orange-500 hover:brightness-110 active:scale-95 transition-all text-white font-bold py-3 rounded-lg text-base shadow-md shadow-orange-200">
+            <button 
+                onClick={handleShowModalForConfirmation}
+            className="w-full bg-orange-500 hover:brightness-110 active:scale-95 transition-all text-white font-bold py-3 rounded-lg text-base shadow-md shadow-orange-200">
                 Book Now
             </button>
 
