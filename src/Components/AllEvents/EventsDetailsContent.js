@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link';
 import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import { FiHeart, FiShare2, FiCalendar, FiClock, FiMapPin, FiUsers, FiCheckCircle, FiStar } from 'react-icons/fi';
 import { MdOutlineFollowTheSigns } from 'react-icons/md';
 
@@ -31,83 +32,117 @@ const BookingCard = () => {
     const serviceFee = 5;
     const subtotal = pricePerTicket * qty;
     const total = subtotal + serviceFee;
-    // const []
+    const [showModal, setShowModal] = useState(false);
 
-    const handleShowModalForConfirmation =()=>{
-
-    }
-
+    // ✅ Portal modal — renders directly at <body> level,
+    //    escaping ALL parent stacking contexts (sticky, z-index, transform, etc.)
+    const modal =
+        showModal &&
+        ReactDOM.createPortal(
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999]">
+                <div className="bg-white rounded-lg border-2 border-primary p-10 text-center">
+                    <h2 className="text-xl font-bold text-gray-900 mb-4">Need a Ride?</h2>
+                    <p className="text-gray-700 mb-4">
+                        Book transportation to and from <br /> your experience with our verified drivers.
+                    </p>
+                    <div className="flex items-center gap-2 justify-center">
+                        <Link
+                            href="/events/transport"
+                            className="bg-primary py-2 px-8 rounded-lg text-white"
+                        >
+                            Yes, Add Transportation
+                        </Link>
+                        <button
+                            onClick={() => setShowModal(false)}
+                            className="border border-primary text-primary py-2 px-8 rounded-lg"
+                        >
+                            No Thanks
+                        </button>
+                    </div>
+                </div>
+            </div>,
+            document.body   // ← teleports outside entire React tree DOM
+        );
 
     return (
-        <div className="bg-white rounded-xl shadow-md border border-gray-100 p-5 flex flex-col gap-4 sticky top-6">
+        <>
+            {/* Portal is attached to <body> but state lives here */}
+            {modal}
 
-            <div>
-                <p className="text-xs text-gray-500 font-medium">Price per Ticket</p>
-                <p className="text-4xl font-black text-gray-900 mt-1">${pricePerTicket}</p>
+            <div className="bg-white rounded-xl shadow-md border border-gray-100 p-5 flex flex-col gap-4 sticky top-6">
+
+                <div>
+                    <p className="text-xs text-gray-500 font-medium">Price per Ticket</p>
+                    <p className="text-4xl font-black text-gray-900 mt-1">${pricePerTicket}</p>
+                </div>
+
+                {/* Qty */}
+                <div>
+                    <p className="text-xs text-gray-500 font-medium mb-2">Number of Tickets</p>
+                    <div className="flex items-center gap-4">
+                        <button
+                            onClick={() => setQty((q) => Math.max(1, q - 1))}
+                            className="w-8 h-8 rounded border border-gray-300 flex items-center justify-center text-gray-700 font-bold hover:bg-gray-100 active:scale-95 transition-all"
+                        >
+                            −
+                        </button>
+                        <span className="text-base font-bold text-gray-900 w-6 text-center">
+                            {String(qty).padStart(2, '0')}
+                        </span>
+                        <button
+                            onClick={() => setQty((q) => q + 1)}
+                            className="w-8 h-8 rounded border border-gray-300 flex items-center justify-center text-gray-700 font-bold hover:bg-gray-100 active:scale-95 transition-all"
+                        >
+                            +
+                        </button>
+                    </div>
+                </div>
+
+                {/* Price breakdown */}
+                <div className="flex flex-col gap-1.5 border-t border-gray-100 pt-3">
+                    <div className="flex items-center justify-between text-sm text-gray-600">
+                        <span>Subtotal ({qty} Ticket{qty > 1 ? 's' : ''})</span>
+                        <span>${subtotal}</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm text-gray-600">
+                        <span>Service Fee</span>
+                        <span>${serviceFee}</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm font-bold text-gray-900 pt-1 border-t border-gray-100">
+                        <span>Total</span>
+                        <span className="text-orange-500">${total}</span>
+                    </div>
+                </div>
+
+                {/* CTA */}
+                <button
+                    onClick={() => setShowModal(true)}
+                    className="w-full bg-orange-500 hover:brightness-110 active:scale-95 transition-all text-white font-bold py-3 rounded-lg text-base shadow-md shadow-orange-200"
+                >
+                    Book Now
+                </button>
+
+                <p className="text-xs text-gray-400 text-center leading-snug">
+                    Free cancellation up to<br />24 hours before the event
+                </p>
             </div>
-
-            {/* Qty */}
-            <div>
-                <p className="text-xs text-gray-500 font-medium mb-2">Number of Tickets</p>
-                <div className="flex items-center gap-4">
-                    <button
-                        onClick={() => setQty((q) => Math.max(1, q - 1))}
-                        className="w-8 h-8 rounded border border-gray-300 flex items-center justify-center text-gray-700 font-bold hover:bg-gray-100 active:scale-95 transition-all"
-                    >
-                        −
-                    </button>
-                    <span className="text-base font-bold text-gray-900 w-6 text-center">{String(qty).padStart(2, '0')}</span>
-                    <button
-                        onClick={() => setQty((q) => q + 1)}
-                        className="w-8 h-8 rounded border border-gray-300 flex items-center justify-center text-gray-700 font-bold hover:bg-gray-100 active:scale-95 transition-all"
-                    >
-                        +
-                    </button>
-                </div>
-            </div>
-
-            {/* Price breakdown */}
-            <div className="flex flex-col gap-1.5 border-t border-gray-100 pt-3">
-                <div className="flex items-center justify-between text-sm text-gray-600">
-                    <span>Subtotal ({qty} Ticket{qty > 1 ? 's' : ''})</span>
-                    <span>${subtotal}</span>
-                </div>
-                <div className="flex items-center justify-between text-sm text-gray-600">
-                    <span>Service Fee</span>
-                    <span>${serviceFee}</span>
-                </div>
-                <div className="flex items-center justify-between text-sm font-bold text-gray-900 pt-1 border-t border-gray-100">
-                    <span>Total</span>
-                    <span className="text-orange-500">${total}</span>
-                </div>
-            </div>
-
-            {/* CTA */}
-            <button 
-                onClick={handleShowModalForConfirmation}
-            className="w-full bg-orange-500 hover:brightness-110 active:scale-95 transition-all text-white font-bold py-3 rounded-lg text-base shadow-md shadow-orange-200">
-                Book Now
-            </button>
-
-            <p className="text-xs text-gray-400 text-center leading-snug">
-                Free cancellation up to<br />24 hours before the event
-            </p>
-        </div>
+        </>
     );
 };
 
 // ── Main Component ────────────────────────────────────────────────
 const EventsDetailsContent = () => {
     return (
-        <div className="min-h-screen py-8 z-[999] -mt-40">
-            <div className=" mx-auto flex flex-col lg:flex-row gap-8 items-start">
+        <div className="min-h-screen py-8 -mt-40">
+
+            <div className="mx-auto flex flex-col lg:flex-row gap-8 items-start">
 
                 {/* ── Left / Main Content ── */}
-                <div className="flex-1 flex flex-col gap-8 ">
+                <div className="flex-1 flex flex-col gap-8">
 
                     {/* Header */}
-                    <div className="flex flex-col justify-center gap-4 bg-white p-5 rounded-lg z-[999] min-h-52">
-                        <div className="flex items-start justify-between  gap-4">
+                    <div className="flex flex-col justify-center gap-4 bg-white p-5 rounded-lg z-[99] min-h-52">
+                        <div className="flex items-start justify-between gap-4">
                             <h1 className="text-2xl md:text-3xl font-black text-gray-900 leading-tight">
                                 Junkanoo Summer Festival 2026
                             </h1>
@@ -196,7 +231,7 @@ const EventsDetailsContent = () => {
                             </div>
                             {/* 4 smaller images on the right */}
                             {galleryImages.slice(1).map((img) => (
-                                <div key={img.id} className="rounded-xl overflow-hidden ">
+                                <div key={img.id} className="rounded-xl overflow-hidden">
                                     <img
                                         src={img.src}
                                         alt="gallery"
@@ -245,7 +280,10 @@ const EventsDetailsContent = () => {
                                         <MdOutlineFollowTheSigns className="w-4 h-4" />
                                         Follow
                                     </button>
-                                    <Link href={`/events/profile/1520520`} className="border border-gray-300 text-gray-700 text-xs font-semibold px-4 py-2 rounded hover:bg-gray-50 active:scale-95 transition-all">
+                                    <Link
+                                        href={`/events/profile/1520520`}
+                                        className="border border-gray-300 text-gray-700 text-xs font-semibold px-4 py-2 rounded hover:bg-gray-50 active:scale-95 transition-all"
+                                    >
                                         View Full Profile
                                     </Link>
                                 </div>
