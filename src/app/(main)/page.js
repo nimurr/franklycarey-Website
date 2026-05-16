@@ -24,10 +24,10 @@ const Page = () => {
             <TrendingNow />
             <Subscribtion />
             <HomePageReviews />
+            <ReadytoExperience />
             <ForEventCreators />
             <ForDrivers />
             <ShowMobileApp />
-            <ReadytoExperience />
         </div>
     );
 }
