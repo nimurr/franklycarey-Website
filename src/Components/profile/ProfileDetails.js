@@ -115,6 +115,31 @@ const EventCard = ({ event }) => (
 const ProfileDetails = () => {
     const [followed, setFollowed] = useState(false);
 
+
+    const [isEditing, setIsEditing] = useState(false);
+    const [name, setName] = useState('Cay Symphony Studio');
+    const [image, setImage] = useState('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80');
+    const [previewImage, setPreviewImage] = useState(null);
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        setPreviewImage(URL.createObjectURL(file));
+    };
+
+    const handleSave = () => {
+        if (previewImage) setImage(previewImage);
+        setIsEditing(false);
+        setPreviewImage(null);
+        // call your API here to save name + image
+    };
+
+    const handleCancel = () => {
+        setIsEditing(false);
+        setPreviewImage(null);
+    };
+
+
     return (
         <div className="min-h-screen pb-8 -mt-40 z-10">
             <div className="mx-auto flex flex-col gap-6">
@@ -125,31 +150,83 @@ const ProfileDetails = () => {
                     {/* Top row: avatar + name + follow */}
                     <div className="flex items-center justify-between gap-4 flex-wrap">
                         <div className="flex items-center gap-4">
-                            <img
-                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80"
-                                alt="Cay Symphony Studio"
-                                className="w-20 h-20 md:w-24 md:h-24 rounded-xl object-cover shadow-md border border-gray-200"
-                            />
-                            <h1 className="text-2xl md:text-3xl font-black text-gray-900">
-                                Cay Symphony Studio
-                            </h1>
-                        </div>
-                        <button
-                            className={`flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded transition-all duration-200 active:scale-95
-                                ${followed
-                                    ? 'bg-white border-2 border-orange-500 text-orange-500 hover:bg-orange-50'
-                                    : 'bg-orange-500 hover:brightness-110 text-white shadow-md shadow-orange-200'
-                                }`}
-                        >
-                            <CiEdit className="w-4 h-4" />
-                            Profile Update
-                        </button>
-                    </div>
 
-                    {/* Bio */}
+                            {/* ── Avatar — click to pick file when editing ── */}
+                            <div className="relative shrink-0">
+                                <img
+                                    src={previewImage || image}
+                                    alt="Cay Symphony Studio"
+                                    className="w-20 h-20 md:w-24 md:h-24 rounded-xl object-cover shadow-md border border-gray-200"
+                                />
+                                {isEditing && (
+                                    <>
+                                        {/* invisible file input */}
+                                        <input
+                                            type="file"
+                                            accept="image/*"
+                                            id="avatar-upload"
+                                            className="hidden"
+                                            onChange={handleImageChange}
+                                        />
+                                        {/* clickable overlay */}
+                                        <label
+                                            htmlFor="avatar-upload"
+                                            className="absolute inset-0 flex flex-col items-center justify-center rounded-xl bg-black/50 cursor-pointer text-white text-[10px] font-semibold gap-1"
+                                        >
+                                            <CiEdit className="w-5 h-5" />
+                                            Change
+                                        </label>
+                                    </>
+                                )}
+                            </div>
+
+                            {/* ── Name — text when viewing, input when editing ── */}
+                            {isEditing ? (
+                                <input
+                                    type="text"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    autoFocus
+                                    className="text-2xl md:text-3xl font-black text-gray-900 border-b-2 border-orange-500 outline-none bg-transparent w-full max-w-xs"
+                                />
+                            ) : (
+                                <h1 className="text-2xl md:text-3xl font-black text-gray-900">
+                                    {name}
+                                </h1>
+                            )}
+                        </div>
+
+                        {/* ── Button — toggles between edit / save+cancel ── */}
+                        {isEditing ? (
+                            <div className="flex items-center gap-2">
+                                <button
+                                    onClick={handleCancel}
+                                    className="flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded border-2 border-gray-300 text-gray-600 hover:bg-gray-50 active:scale-95 transition-all"
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    onClick={handleSave}
+                                    className="flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded bg-orange-500 hover:brightness-110 text-white shadow-md shadow-orange-200 active:scale-95 transition-all"
+                                >
+                                    Save Changes
+                                </button>
+                            </div>
+                        ) : (
+                            <button
+                                onClick={() => setIsEditing(true)}
+                                className="flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded bg-orange-500 hover:brightness-110 text-white shadow-md shadow-orange-200 active:scale-95 transition-all"
+                            >
+                                <CiEdit className="w-4 h-4" />
+                                Profile Update
+                            </button>
+                        )}
+                    </div>
                     <p className="text-gray-500 text-sm leading-relaxed max-w-3xl">
                         Premier event organizer in the Bahamas specializing in beach festivals, music events, and cultural celebrations. With over 10 years of experience, we create unforgettable moments for locals and tourists alike.
                     </p>
+
+                    {/* Bio */}
 
                     {/* Stats row */}
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 border-t border-gray-100 pt-5">
