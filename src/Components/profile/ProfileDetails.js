@@ -213,13 +213,13 @@ const ProfileDetails = () => {
                                 </button>
                             </div>
                         ) : (
-                            <button
-                                onClick={() => setIsEditing(true)}
+                            <Link 
+                                href="/profile/settings"
                                 className="flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded bg-orange-500 hover:brightness-110 text-white shadow-md shadow-orange-200 active:scale-95 transition-all"
                             >
                                 <CiEdit className="w-4 h-4" />
                                 Profile Update
-                            </button>
+                            </Link>
                         )}
                     </div>
                     <p className="text-gray-500 text-sm leading-relaxed max-w-3xl">
