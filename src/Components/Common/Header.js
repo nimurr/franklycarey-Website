@@ -199,7 +199,7 @@ const Header = () => {
 
                 {/* Mobile Nav */}
                 <div
-                    className={`xl:hidden overflow-hidden transition-all duration-300 ease-in-out
+                    className={`xl:hidden overflow-hidden transition-all bg-black/70 duration-300 ease-in-out
                         ${menuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}
                 >
                     <nav className="container mx-auto px-5 pb-5 flex flex-col gap-1 border-t border-gray-100 pt-3">
@@ -225,7 +225,7 @@ const Header = () => {
 
                         {/* Mobile dropdown links */}
                         <div className="border-t border-gray-100 mt-2 pt-2 flex flex-col gap-1">
-                            {dropdownLinks.map(({ label, href, icon: Icon }) => (
+                            {/* {dropdownLinks.map(({ label, href, icon: Icon }) => (
                                 <Link
                                     key={href}
                                     href={href}
@@ -234,7 +234,7 @@ const Header = () => {
                                     <Icon className="w-4 h-4 text-gray-400" />
                                     {label}
                                 </Link>
-                            ))}
+                            ))} */}
                             <button className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-red-500 hover:bg-red-50 transition-all duration-200">
                                 <FiLogOut className="w-4 h-4" />
                                 Sign Out
