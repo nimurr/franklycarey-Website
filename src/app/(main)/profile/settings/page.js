@@ -114,14 +114,13 @@ const ChangePasswordModal = ({ onClose }) => {
                         {[1, 2, 3, 4].map((i) => (
                             <div
                                 key={i}
-                                className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
-                                    form.newPass.length >= i * 3
-                                        ? i <= 1 ? 'bg-red-400'
+                                className={`h-1 flex-1 rounded-full transition-colors duration-300 ${form.newPass.length >= i * 3
+                                    ? i <= 1 ? 'bg-red-400'
                                         : i <= 2 ? 'bg-yellow-400'
-                                        : i <= 3 ? 'bg-blue-400'
-                                        : 'bg-green-500'
-                                        : 'bg-gray-200'
-                                }`}
+                                            : i <= 3 ? 'bg-blue-400'
+                                                : 'bg-green-500'
+                                    : 'bg-gray-200'
+                                    }`}
                             />
                         ))}
                         <span className="text-[10px] text-gray-400 shrink-0">
@@ -317,7 +316,20 @@ const Page = () => {
         setNotifications((prev) => ({ ...prev, [key]: val }));
 
     const [showChangePassword, setShowChangePassword] = useState(false);
-    const [showDeleteAccount, setShowDeleteAccount]   = useState(false);
+    const [showDeleteAccount, setShowDeleteAccount] = useState(false);
+
+    const handleSubmitProfile = (e) => {
+        e.preventDefault();
+        const data = e.target;
+        const profileData = {
+            firstName: data[0].value,
+            lastName: data[1].value,
+            number: data[3].value,
+        };
+        console.log(profileData)
+        // handle profile update API call here
+    }
+
 
     return (
         <div>
@@ -337,26 +349,29 @@ const Page = () => {
                 <div className=" flex flex-col gap-5">
 
                     {/* ── Account ── */}
-                    <Section>
-                        <SectionTitle icon="🧑‍💼" title="Account" />
-                        <div className="max-w-lg mx-auto flex flex-col gap-4">
-                            <div>
-                                <label className="text-xs font-semibold text-gray-600 mb-1 block">Name</label>
-                                <div className="grid grid-cols-2 gap-3">
-                                    <Input placeholder="First Name" />
-                                    <Input placeholder="Last Name" />
+                    <form onSubmit={handleSubmitProfile} action="">
+                        <Section>
+                            <SectionTitle icon="🧑‍💼" title="Account" />
+                            <div className="max-w-lg mx-auto flex flex-col gap-4">
+                                <div>
+                                    <label className="text-xs font-semibold text-gray-600 mb-1 block">Name</label>
+                                    <div className="grid grid-cols-2 gap-3">
+                                        <Input placeholder="First Name" />
+                                        <Input placeholder="Last Name" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="text-xs font-semibold text-gray-600 mb-1 block">Email Address</label>
+                                    <Input placeholder="someone@gmail.com" type="email" />
+                                </div>
+                                <div>
+                                    <label className="text-xs font-semibold text-gray-600 mb-1 block">Phone Number</label>
+                                    <Input placeholder="+1 (242) 555-0123" type="tel" />
                                 </div>
                             </div>
-                            <div>
-                                <label className="text-xs font-semibold text-gray-600 mb-1 block">Email Address</label>
-                                <Input placeholder="someone@gmail.com" type="email" />
-                            </div>
-                            <div>
-                                <label className="text-xs font-semibold text-gray-600 mb-1 block">Phone Number</label>
-                                <Input placeholder="+1 (242) 555-0123" type="tel" />
-                            </div>
-                        </div>
-                    </Section>
+                            <button className="cursor-pointer w-full p-2 bg-primary font-semibold text-white rounded-md mt-5">Save</button>
+                        </Section>
+                    </form>
 
                     {/* ── Notifications ── */}
                     <Section>
