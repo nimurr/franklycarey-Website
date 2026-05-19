@@ -260,11 +260,12 @@ const SectionTitle = ({ icon, title }) => (
     </div>
 );
 
-const Input = ({ placeholder, type = 'text' }) => (
+const Input = ({ placeholder, type = 'text', disabled = false }) => (
     <input
         type={type}
         placeholder={placeholder}
-        className="w-full bg-white border border-gray-200 rounded px-3 py-3 text-sm text-gray-700 placeholder-gray-400 outline-none focus:border-orange-400 transition-colors"
+        disabled={disabled}
+        className="w-full bg-white border border-gray-200 rounded px-3 py-3 text-sm text-gray-700 placeholder-gray-400 outline-none focus:border-orange-400 transition-colors disabled:bg-gray-100 disabled:text-gray-500 disabled:cursor-not-allowed"
     />
 );
 
@@ -362,14 +363,14 @@ const Page = () => {
                                 </div>
                                 <div>
                                     <label className="text-xs font-semibold text-gray-600 mb-1 block">Email Address</label>
-                                    <Input placeholder="someone@gmail.com" type="email" />
+                                    <Input disabled placeholder="someone@gmail.com" type="email" />
                                 </div>
                                 <div>
                                     <label className="text-xs font-semibold text-gray-600 mb-1 block">Phone Number</label>
                                     <Input placeholder="+1 (242) 555-0123" type="tel" />
                                 </div>
+                                <button className="cursor-pointer w-full p-2 bg-primary font-semibold text-white rounded-md mt-5">Save</button>
                             </div>
-                            <button className="cursor-pointer w-full p-2 bg-primary font-semibold text-white rounded-md mt-5">Save</button>
                         </Section>
                     </form>
 
