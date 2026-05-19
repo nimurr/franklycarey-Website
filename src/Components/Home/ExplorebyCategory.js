@@ -62,7 +62,7 @@ export default function ExplorebyCategory() {
     const STACK_TOP  = FOLDER_H - 40 - SMALL_H;
 
     /* grid target position (top-left of each cell) */
-    const rows       = Math.ceil(8 / cols);
+    const rows       = Math.ceil(categories?.length / cols);
     const gridTotalH = rows * FULL_H + (rows - 1) * GAP;
     const getGridPos = (i) => ({
         x: (i % cols) * (FULL_W + GAP),
