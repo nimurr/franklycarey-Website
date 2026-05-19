@@ -80,7 +80,7 @@ const Header = () => {
                 >
                     {/* Logo */}
                     <Link href="/" className="shrink-0">
-                        <img className="w-32 h-auto" src="/Images/Auth/logo.png" alt="Xplorify" />
+                        <img className="w-24 md:w-32 h-auto" src="/Images/Auth/logo.png" alt="Xplorify" />
                     </Link>
 
                     {/* Desktop Nav */}
