@@ -19,7 +19,7 @@ const navLinks = [
     { label: 'Categories', href: '/categories' },
     { label: 'Become a Vendor', href: '/vendor' },
     { label: 'Drive With Us', href: '/drive' },
-    { label: 'Mobile App', href: '/app' },
+    { label: 'Mobile App', href: '/#mobile-app' },
     { label: 'Contact', href: '/contact' },
 ];
 

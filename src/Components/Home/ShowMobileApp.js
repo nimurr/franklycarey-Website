@@ -46,7 +46,7 @@ const ShowMobileApp = () => {
     }, []);
 
     return (
-        <div className="flex items-center justify-center py-12">
+        <section id="mobile-app" className="flex items-center justify-center py-12">
             <div className="border-y border-gray-300 md:py-20 py-10 w-full">
 
                 <div
@@ -171,7 +171,7 @@ const ShowMobileApp = () => {
                 </div>
 
             </div>
-        </div>
+        </section>
     );
 };
 
