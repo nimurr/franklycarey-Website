@@ -26,7 +26,7 @@ const socials = [
 
 const Footer = () => {
     return (
-        <footer className="relative min-h-[70vh] text-white overflow-hidden flex items-center justify-center w-full mx-auto ">
+        <footer className="relative min-h-[70vh]  text-white overflow-hidden flex items-center justify-center w-full mx-auto ">
 
             {/* Video Background */}
             <video
@@ -39,7 +39,7 @@ const Footer = () => {
             />
 
             {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/70" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-white/90 " />
 
             {/* Content */}
             <div className="relative z-10 container mx-auto px-6 md:px-12 pt-16 pb-6 flex flex-col gap-10">
