@@ -1,27 +1,71 @@
+'use client'
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 
 const Page = () => {
     return (
-        <div className='h-screen bg-gradient-to-b  from-[#f9f5ff] to-[#b6a7ca] '>
-            <Link href="/">
-                <img className='md:pl-10 pt-10  md:w-60 w-48 mx-auto md:ml-0' src="/Images/Auth/logo2.png" alt="" />
-            </Link>
-            <div className='flex justify-center mt-20'>
-                <div className='min-w-80'>
-                    <h2 className='text-3xl font-medium text-center'>Forgot Password?</h2>
-                    <p className='text-center mt-5 text-gray-600'>Please enter your email address <br /> to reset
-                        your password.</p>
-                    <div className='mt-5'>
-                        <label className='font-semibold' htmlFor="email">Email</label>
-                        <input placeholder='Enter your email' className='mt-2 w-full p-2 border border-green-400 rounded-md focus:outline-0 ring-0 bg-white' type="email" name="email" id="email" />
+        <div
+            className='min-h-screen flex items-center justify-center relative'
+            style={{
+                backgroundImage: "url('/images/Auth/auth_page_bg.png')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+            }}
+        >
+            {/* Blur overlay */}
+            <div className='absolute w-full h-full top-0 left-0 backdrop-blur-sm bg-black/30'></div>
+
+            {/* Forgot Password Card */}
+            <div className='relative z-10 w-full max-w-sm mx-4'>
+
+                {/* Logo */}
+                <div className='text-center mb-6'>
+                    <div className='inline-block border border-orange-500 px-6 py-2 rounded mb-3'>
+                        <span className='text-3xl font-bold'>
+                            <span className='text-orange-500'>X</span>
+                            <span className='text-white'>plorify</span>
+                        </span>
                     </div>
-                    <Link href={'/verify-otp'} className='mt-5 block'>
-                        <button className='cursor-pointer w-full p-2 bg-green-400 font-semibold text-white rounded-md'>Send OTP</button>
+                    <h2 className='text-2xl font-bold text-white'>Forgot Password?</h2>
+                    <p className='text-gray-300 text-sm mt-2'>
+                        Please enter your email address <br /> to reset your password.
+                    </p>
+                </div>
+
+                {/* Form Card */}
+                <div className='bg-black/40 backdrop-blur-md rounded-lg p-6 border border-gray-600'>
+
+                    {/* Email */}
+                    <div className='mb-6'>
+                        <label className='text-white text-sm font-medium mb-1 block' htmlFor="email">
+                            Email Address
+                        </label>
+                        <input
+                            placeholder='Enter your email'
+                            className='w-full p-2.5 bg-transparent border border-dashed border-gray-400 rounded text-white placeholder-gray-400 focus:outline-none focus:border-orange-500 text-sm'
+                            type="email"
+                            name="email"
+                            id="email"
+                        />
+                    </div>
+
+                    {/* Send OTP Button */}
+                    <Link href='/verify-otp'>
+                        <button className='w-full py-3 bg-orange-500 hover:bg-orange-600 transition-colors text-white font-bold rounded text-base cursor-pointer'>
+                            Send OTP
+                        </button>
                     </Link>
                 </div>
+
+                {/* Back to Login */}
+                <p className='text-center mt-4 text-gray-300 text-sm'>
+                    Remember your password?{' '}
+                    <Link className='text-orange-500 font-semibold hover:text-orange-400' href="/signin">
+                        Sign In
+                    </Link>
+                </p>
             </div>
-        </div >
+        </div>
     );
 }
 
