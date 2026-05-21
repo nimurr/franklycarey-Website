@@ -16,19 +16,16 @@ const Page = () => {
             <div className='absolute w-full h-full top-0 left-0 backdrop-blur-sm bg-black/30'></div>
 
             {/* Forgot Password Card */}
-            <div className='relative z-10 w-full max-w-sm mx-4'>
+            <div className='relative z-10 w-full max-w-md mx-4'>
 
                 {/* Logo */}
                 <div className='text-center mb-6'>
-                    <div className='inline-block border border-orange-500 px-6 py-2 rounded mb-3'>
-                        <span className='text-3xl font-bold'>
-                            <span className='text-orange-500'>X</span>
-                            <span className='text-white'>plorify</span>
-                        </span>
+                    <div className='inline-block  px-6 py-2 rounded mb-3'>
+                        <img src="/Images/Auth/logo.png" alt="" />
                     </div>
                     <h2 className='text-2xl font-bold text-white'>Forgot Password?</h2>
                     <p className='text-gray-300 text-sm mt-2'>
-                        Please enter your email address <br /> to reset your password.
+                        Please enter your email address to reset your password.
                     </p>
                 </div>
 
