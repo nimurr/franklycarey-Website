@@ -1,9 +1,10 @@
+import VandorStatus from '@/Components/Vandor/Status/VandorStatus';
 import React from 'react';
 
 const Page = () => {
     return (
         <div>
-            Vandor
+            <VandorStatus />
         </div>
     );
 }

@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./../../globals.css";
 import Footer from "@/Components/Common/Footer";
 import VandorSidebar from "@/Components/Vandor/Common/VandorSidebar";
+import VandorHeader from "@/Components/Vendor/VandorHeader";
+import VandorHeaderMainDash from "@/Components/Vandor/Common/VandorHeader";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -20,12 +22,15 @@ export const metadata = {
 
 export default function Layout({ children }) {
     return (
-        <div className="noise-bg relative">
+        <div className="noise-bg relative flex min-h-screen" style={{ fontFamily: "var(--font-geist-sans)" }}>
             <VandorSidebar />
 
 
-            <div className="min-h-screen">
-                {children}
+            <div className="min-h-screen w-full">
+                <VandorHeaderMainDash />
+                <div className="md:p-5 p-2">
+                    {children}
+                </div>
             </div>
         </div>
     );
