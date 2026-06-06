@@ -15,7 +15,7 @@ const VandorHeaderMainDash = () => {
     const unreadCount = notifications.filter((n) => n.unread).length;
 
     return (
-        <div className="w-full py-5 bg-white flex items-center justify-between border-b border-[#2a2a4a] px-4">
+        <div className="w-full py-5 bg-white flex items-center justify-between border-b border-[#d6d6d6e8] px-4">
 
             {/* Left - Title */}
             <h1 className="text-xl font-bold text-gray-800">Dashboard</h1>

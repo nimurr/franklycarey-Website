@@ -13,7 +13,7 @@ const VandorSidebar = () => {
     const [active, setActive] = useState('Dashboard');
 
     return (
-        <div className="w-72 min-h-screen bg-[#ffffff] flex flex-col border-r border-[#2a2a4a] px-3 py-6">
+        <div className="w-72 min-h-screen bg-[#ffffff] flex flex-col border-r border-[#d6d6d6e8] px-3 py-6">
             {/* Logo */}
             <div className="text-orange-500 text-center text-lg font-bold px-3 pb-6 mb-2 ">
                 <Link href="/vandor" className="shrink-0">
